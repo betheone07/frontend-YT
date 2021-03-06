@@ -1,6 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#"><b>BiTlY</b></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <a class="navbar-brand" routerLink="/dashboard" routerLinkActive="active"><b>YouTube</b></a>
+  <ul class="navbar-nav">
+    <a class="nav-link" *ngIf="authService.loggedIn()" routerLink="/uploadvideo" routerLinkActive="active">Upload</a>
+    <a class="nav-link" *ngIf="authService.loggedIn()" routerLink="/showvideos" routerLinkActive="active">My Videos</a>
+  </ul>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -14,14 +19,14 @@
       </li>
     </ul>
     <ul class="navbar-nav">
-        <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-        <a class="nav-link" *ngIf="!authService.loggedIn()" routerLink="/login" routerLinkActive="active">Login</a>
-        <a class="nav-link" *ngIf="!authService.loggedIn()" routerLink="/register" routerLinkActive="active">Register</a>
+      <a class="nav-link" *ngIf="!authService.loggedIn()" routerLink="/login" routerLinkActive="active">Login</a>
+      <a class="nav-link" *ngIf="!authService.loggedIn()" routerLink="/register" routerLinkActive="active">Register</a>
 
-        <a class="nav-link" style="cursor:pointer" *ngIf="authService.loggedIn()" (click)="authService.logoutUser()">Logout</a>       
+      <a class="nav-link" style="cursor:pointer" *ngIf="authService.loggedIn()"
+        (click)="authService.logoutUser()">Logout</a>
     </ul>
   </div>
-</nav>    
+</nav>
 <div class="container">
-  <router-outlet></router-outlet>            
+  <router-outlet></router-outlet>
 </div>

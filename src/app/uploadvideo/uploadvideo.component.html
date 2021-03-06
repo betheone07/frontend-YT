@@ -1,0 +1,21 @@
+      <h3>Upload Video</h3>
+      <div class="wraparound" style="padding: 30px;">
+      <div class="input-group mb-3" style="padding: 50px;">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">@</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Title" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+      <br>
+
+
+
+      <label for="basic-url" style="padding-left: 50px;"><b>Select File to Upload</b></label><br>
+      <div class="input-group mb-3" style="padding: 50px;">
+        <div class="input-group-prepend">
+          <angular-file-uploader [config]="afuConfig">
+          </angular-file-uploader>
+        </div>
+      </div>
+    </div>

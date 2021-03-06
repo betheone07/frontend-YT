@@ -6,19 +6,28 @@
       <!-- form card login -->
       <div class="card rounded-0">
         <div class="card-header">
-          <h3 class="mb-0"><b>Register</b></h3>
+          <h3 class="mb-0" style="text-align: center;"><b>Sign Up</b></h3>
         </div>
         <div class="card-body">
           <form class="form">
             <div class="form-group">
-              <label for="uname1">Email</label>
-              <input type="text" [(ngModel)]="registerUserData.email" name="email" class="form-control rounded-0" required>
+              <input type="text" placeholder="Name" [(ngModel)]="registerUserData.name" name="name"
+                class="form-control rounded-0" required>
             </div>
             <div class="form-group">
-              <label>Password</label>
-              <input type="password" [(ngModel)]="registerUserData.password" name="password" class="form-control rounded-0"  required>
+              <input type="text" placeholder="Email" [(ngModel)]="registerUserData.email" name="email"
+                class="form-control rounded-0" required>
             </div>
-            <button type="button" (click)="registerUser()" class="btn btn-primary float-right">Register</button>
+            <div class="form-group">
+              <input type="password" placeholder="Password" [(ngModel)]="registerUserData.password" name="password"
+                class="form-control rounded-0" required>
+            </div>
+            <p class="text-center text-muted"><small>By clicking on Sign up, you agree to <a href="#">terms &
+                  conditions</a> and <a href="#">privacy policy</a></small></p>
+            <button type="button" (click)="registerUser()" class="btn btn-lg btn-block btn-primary">Sign up</button>
+            <br />
+            <p class="text-center text-muted">Already have an account? <a routerLink="/login"
+                routerLinkActive="active">Log in now</a></p>
           </form>
         </div>
         <!--/card-block-->

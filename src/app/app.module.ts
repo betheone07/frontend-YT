@@ -7,23 +7,29 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthorizeService } from './authorize.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { UploadvideoComponent } from './uploadvideo/uploadvideo.component';
+import { AngularFileUploaderModule } from "angular-file-uploader";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ShowvideosComponent } from './showvideos/showvideos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    DashboardComponent
+    UploadvideoComponent,
+    DashboardComponent,
+    ShowvideosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFileUploaderModule
   ],
   providers: [AuthorizeService, AuthGuard, {
     provide: HTTP_INTERCEPTORS,

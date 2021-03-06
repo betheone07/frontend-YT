@@ -11,6 +11,7 @@ import { AuthorizeService } from '../authorize.service';
 export class RegisterComponent implements OnInit {
 
   registerUserData = {
+    name: null,
     email: null,
     password: null
   }
@@ -25,7 +26,9 @@ export class RegisterComponent implements OnInit {
       res => {
         console.log(res)
         localStorage.setItem('token',res.token)
-        this.router.navigate(['/dashboard'])
+        //add the component to be navigated after logged in
+        /* 
+        this.router.navigate(['/dashboard']) */
       },
       err => console.log(err)
     )

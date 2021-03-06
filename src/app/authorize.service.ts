@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthorizeService {
 
-  private registerUrl = "https://beurlshortener.herokuapp.com/api/register";
-  private loginurl = "https://beurlshortener.herokuapp.com/api/login";
-  private shortenurl = "https://beurlshortener.herokuapp.com/url/shorten"
+  private registerUrl = "https://backend-youtube.herokuapp.com/api/register";
+  private loginurl = "https://backend-youtube.herokuapp.com/api/login";
+  private videourl = "https://backend-youtube.herokuapp.com/api/getvideos"
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -22,8 +23,8 @@ export class AuthorizeService {
     return this.http.post<any>(this.loginurl,user)
   }
 
-  findshorturl(url) {
-    return this.http.post<any>(this.shortenurl, {url:url})
+  getvideos() {
+    return this.http.get<any>(this.videourl)
   }
 
   //whether token found in localstorage or not-boolean val
@@ -37,6 +38,6 @@ export class AuthorizeService {
 
   logoutUser() {
     localStorage.removeItem('token')
-    this.router.navigate(['/login'])
+    this.router.navigate(['/dashboard'])
   }
 }

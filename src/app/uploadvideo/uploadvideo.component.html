@@ -1,21 +1,29 @@
-      <h3>Upload Video</h3>
+      <h3><b>Upload Video</b></h3>
       <div class="wraparound" style="padding: 30px;">
-      <div class="input-group mb-3" style="padding: 50px;">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">@</span>
-        </div>
-        <input type="text" class="form-control" placeholder="Title" aria-label="Username"
-          aria-describedby="basic-addon1">
+
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Video-Title</label>
+              <input type="text" class="form-control" id="inputEmail4" [(ngModel)]="Url.title" placeholder="@Title"
+                [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">Video-Tags</label>
+              <input type="text" class="form-control" id="inputPassword4" placeholder="@Tags">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputAddress">Video-Url</label>
+            <input type="text" class="form-control" id="inputAddress" [(ngModel)]="Url.url" placeholder="@embed-url"
+              [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group">
+            <label for="inputAddress">User-Email</label>
+            <input type="text" class="form-control" id="inputAddress" [(ngModel)]="Url.email" placeholder="@user-email"
+              [ngModelOptions]="{standalone: true}">
+          </div>
+          <button type="submit" (click)="upload()" class="btn btn-primary">Upload</button>
+        </form>
+
       </div>
-      <br>
-
-
-
-      <label for="basic-url" style="padding-left: 50px;"><b>Select File to Upload</b></label><br>
-      <div class="input-group mb-3" style="padding: 50px;">
-        <div class="input-group-prepend">
-          <angular-file-uploader [config]="afuConfig">
-          </angular-file-uploader>
-        </div>
-      </div>
-    </div>

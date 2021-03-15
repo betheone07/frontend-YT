@@ -24,11 +24,9 @@ export class RegisterComponent implements OnInit {
     this.auth.registerUser(this.registerUserData)
     .subscribe(
       res => {
-        console.log(res)
-        localStorage.setItem('token',res.token)
-        //add the component to be navigated after logged in
-        /* 
-        this.router.navigate(['/dashboard']) */
+        alert(`User ${this.registerUserData.name} Registered!`)
+
+        this.router.navigate(['/login'])
       },
       err => console.log(err)
     )

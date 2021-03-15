@@ -12,6 +12,7 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser
 export class ShowvideosComponent implements OnInit {
 
   videos:any;
+  localemail:any;
   
   constructor(private auth : AuthorizeService, private sanitizer: DomSanitizer) { }
 
@@ -23,8 +24,10 @@ export class ShowvideosComponent implements OnInit {
   
   ngOnInit(): void {
     
+    this.localemail = localStorage.getItem('localuser')
 
-    this.auth.getvideos().subscribe((result) => {this.videos = result;console.log(this.videos)});
+    this.auth.getvideos({email : this.localemail}).subscribe((result) => {this.videos = result.videos;
+      console.log(this.videos)});
   }
 
   

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Router } from '@angular/router';
+import { AuthorizeService } from '../authorize.service';
+
+
 @Component({
   selector: 'app-uploadvideo',
   templateUrl: './uploadvideo.component.html',
@@ -7,17 +11,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UploadvideoComponent implements OnInit {
 
-  constructor() { }
+  Url = {
+    title : null,
+    url : null,
+    email : null
+  
+  }
+
+  constructor(private auth: AuthorizeService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  afuConfig = {
-    uploadAPI: {
-      url:"http://localhost:6563/api/upload",
-      method: "POST"
-    }
-};
+  upload() {
+    this.auth.postvideos(this.Url).subscribe(
+      res => {
+        console.log(res)
+        alert(`${this.Url.title} Added!` )
+      },
+      err => console.log(err) 
+    )
+  }
 
 }
 

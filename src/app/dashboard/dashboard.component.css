@@ -207,3 +207,17 @@ body {
   height: 36px;
   background-color: #AAA;
 }
+
+h2{
+  text-align: center;
+  font-family: Verdana;
+  padding: 15px;
+}
+
+h5{
+  padding: 10px 2px;
+  text-decoration: dotted;
+  text-indent: 0cm;
+  color: #555;
+  padding-left: 15px;
+}

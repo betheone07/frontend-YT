@@ -8,9 +8,12 @@ import { Observable } from 'rxjs';
 })
 export class AuthorizeService {
 
-  private registerUrl = "https://backend-youtube.herokuapp.com/api/register";
-  private loginurl = "https://backend-youtube.herokuapp.com/api/login";
-  private videourl = "https://backend-youtube.herokuapp.com/api/getvideos"
+  private registerUrl = "http://localhost:6563/api/register";
+  private loginurl = "http://localhost:6563/api/login";
+  private videourl = "http://localhost:6563/api/getvideos";
+  private uploadvideourl = "http://localhost:6563/api/postvideos";
+  private dashvideourl = "http://localhost:6563/api/dashboardvideos";
+  private likevideourl = "http://localhost:6563/api/likevideo";
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -23,8 +26,21 @@ export class AuthorizeService {
     return this.http.post<any>(this.loginurl,user)
   }
 
-  getvideos() {
-    return this.http.get<any>(this.videourl)
+  getvideos(url) {
+    return this.http.post<any>(this.videourl, url)
+  }
+
+  postvideos(url) {
+    return this.http.post<any>(this.uploadvideourl, url)
+  }
+
+  dashvideos() {
+    return this.http.get<any>(this.dashvideourl)
+  }
+
+
+  likevideo(url) {
+    return this.http.post<any>(this.likevideourl, url)
   }
 
   //whether token found in localstorage or not-boolean val
@@ -38,6 +54,7 @@ export class AuthorizeService {
 
   logoutUser() {
     localStorage.removeItem('token')
+    localStorage.removeItem('localuser')
     this.router.navigate(['/dashboard'])
   }
 }

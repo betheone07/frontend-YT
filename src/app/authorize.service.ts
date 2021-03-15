@@ -8,12 +8,12 @@ import { Observable } from 'rxjs';
 })
 export class AuthorizeService {
 
-  private registerUrl = "http://localhost:6563/api/register";
-  private loginurl = "http://localhost:6563/api/login";
-  private videourl = "http://localhost:6563/api/getvideos";
-  private uploadvideourl = "http://localhost:6563/api/postvideos";
-  private dashvideourl = "http://localhost:6563/api/dashboardvideos";
-  private likevideourl = "http://localhost:6563/api/likevideo";
+  private registerUrl = "https://backend-yt.herokuapp.com/api/register";
+  private loginurl = "https://backend-yt.herokuapp.com/api/login";
+  private videourl = "https://backend-yt.herokuapp.com/api/getvideos";
+  private uploadvideourl = "https://backend-yt.herokuapp.com/api/postvideos";
+  private dashvideourl = "https://backend-yt.herokuapp.com/api/dashboardvideos";
+  private likevideourl = "https://backend-yt.herokuapp.com/api/likevideo";
 
   constructor(private http: HttpClient, private router: Router) { }
 
